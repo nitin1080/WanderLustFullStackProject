@@ -130,9 +130,3 @@ This project helped me learn:
 - Cloudinary Integration
 - Full Stack Development
 - CRUD Operations
-
-## Author
-
-**Nitin Singh**
-
-GitHub: https://github.com/nitin1080
