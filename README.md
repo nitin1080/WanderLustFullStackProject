@@ -130,3 +130,9 @@ This project helped me learn:
 - Cloudinary Integration
 - Full Stack Development
 - CRUD Operations
+
+## Author
+**Nitin Singh**
+- Final Year EIE Student, NIT Silchar
+- Passionate about Full-Stack Web Development, Data Structures & Algorithms, and Software Engineering.
+- Skilled in MERN Stack (MongoDB, Express.js, React.js, Node.js), SQL, and REST APIs.
