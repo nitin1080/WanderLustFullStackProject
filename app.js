@@ -53,7 +53,7 @@ const store=MongoStore.create({
     },
 });
 
-store.on("error",()=>{
+store.on("error",(error)=>{
     console.log("Error in Mongo Session Store",error);
 });
 
@@ -63,6 +63,7 @@ const sessionOptions={
     resave:false,
     saveUninitialized:true,
     cookie: {
+        secure: process.env.NODE_ENV === "production",
         expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
         maxAge: 7 * 24 * 60 * 60 * 1000,
         httpOnly: true,
