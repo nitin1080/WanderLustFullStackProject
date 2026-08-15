@@ -1,7 +1,7 @@
 <% layout("/layouts/boilerplate") %>
 <script>
     const mapToken="<%= process.env.MAP_TOKEN %>";
-    const coordinates=<%-JSON.stringify(list.geometry.coordinates)%>
+    const coordinates=<%-JSON.stringify(list.geometry?.coordinates || [0,0])%>
 </script>
 <body>
     <div class="row mt-3">
@@ -10,19 +10,19 @@
         </div>
 
         <div class="card col-6 offset-3 show-card listing-card">
-            <img src="<%= list.image.url %>" class="card-img-top show-img" alt="listing_image"/>
+            <img src="<%= list.image?.url || 'https://www.dolomitemountains.com/blog/wp-content/uploads/2021/06/20110718_010-Photo-Giuseppe-Ghedina.jpeg' %>" class="card-img-top show-img" alt="listing_image"/>
             <div class="card-body">
                 <p class="card-text">
-                    OwnedBy:<i><%= list.owner.username %></i> <br>
+                    OwnedBy:<i><%= list.owner?.username || "Unknown" %></i> <br>
                     <%= list.description %> <br>
-                    &#8377;<%= list.price.toLocaleString("en-IN") %>/night <br>
+                    &#8377;<%= (list.price || 0).toLocaleString("en-IN") %>/night <br>
                     <%= list.location %> <br>
                     <%= list.country %>
                 </p>
             </div>
         </div>
         
-        <% if(currUser&&currUser._id.equals(list.owner._id)){ %>
+        <% if(currUser && list.owner && currUser._id.equals(list.owner._id)){ %>
         <div class="btns">
             <a href="/listings/<%= list._id %>/edit"
             class="btn btn-dark col-1 offset-3 edit-btn">
@@ -69,7 +69,7 @@
             <div class="row">
                     <div class="card cols-5 ms-3 mb-3 pt-2">
                        <div class="card-body">
-                            <h5 class="card-title">@<%= review.author.username %></h5>
+                            <h5 class="card-title">@<%= review.author?.username || "Unknown" %></h5>
                             <p class="starability-result card-text" data-rating="<%= review.rating %>"></p>
                             <p class="card-text"><%= review.comment %></p>
                             <form class="mb-3" method="post" action="/listings/<%=list._id%>/reviews/<%= review.id %>?_method=DELETE">
