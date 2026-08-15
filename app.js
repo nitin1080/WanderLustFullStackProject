@@ -108,6 +108,8 @@ app.use((err,req,res,next)=>{
     res.status(statusCode).render("error.ejs",{message});
 });
 
-app.listen(8080,(req,res)=>{
-    console.log("server is listioning...");
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+    console.log(`server running on port ${PORT}`);
 });
