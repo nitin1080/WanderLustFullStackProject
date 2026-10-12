@@ -112,9 +112,7 @@ Add screenshots here:
 
 ## Future Improvements
 
-- User Authentication
 - Booking System
-- Reviews & Ratings
 - Search and Filter Listings
 - Wishlist Feature
 - Payment Integration
